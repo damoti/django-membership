@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block sidebar %}
+{% with section="login" %}{{ block.super }}{% endwith %}
+{% endblock %}
+
+
+{% block content %}
+<div class="col-md-6">{% crispy form %}</div>
+{% endblock %}

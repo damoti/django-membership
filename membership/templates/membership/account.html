@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+  {% with section="login" %}{{ block.super }}{% endwith %}
+{% endblock %}
+
+
+{% block content %}
+  <div class="col-md-6">{{ user.email }}</div>
+{% endblock %}

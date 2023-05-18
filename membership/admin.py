@@ -100,6 +100,7 @@ class UserCreationForm(forms.ModelForm):
 
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
+    list_display = BaseUserAdmin.list_display + ('last_login',)
     fieldsets = BaseUserAdmin.fieldsets
     add_form = UserCreationForm
     add_fieldsets = (

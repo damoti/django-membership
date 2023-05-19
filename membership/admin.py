@@ -117,6 +117,16 @@ class UserAdmin(BaseUserAdmin):
         ),
     )
 
+    @admin.action(description='Reset user password.')
+    def reset_password(self, request, queryset):
+        for user in queryset:
+            password = User.objects.generate_password()
+            user.set_password(password)
+            user.send_welcome_email(password)
+            user.save()
+
+    actions = ['reset_password']
+
 
 @admin.register(EmailTemplate)
 class EmailTemplateAdmin(admin.ModelAdmin):

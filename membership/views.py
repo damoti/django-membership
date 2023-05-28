@@ -28,6 +28,7 @@ class LoginForm(base_forms.AuthenticationForm):
 
 class LoginView(base_views.LoginView):
     form_class = LoginForm
+    template_name = "membership/login.html"
 
 
 class LogoutView(base_views.LogoutView):
